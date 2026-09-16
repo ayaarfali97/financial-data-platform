@@ -1,0 +1,92 @@
+# Eval set for the Query Router Agent. 18 pairs across all four routes.
+# Each pair defines:
+#   route   : acceptable route(s) the classifier should pick
+#   include : substrings that MUST appear (lowercased) in the answer
+#   any     : (optional) at least one of these substrings must appear
+# A pair PASSES when: route is acceptable AND context was retrieved AND
+# all `include` present AND (if given) at least one `any` present.
+
+pairs:
+  # ── SQL (warehouse) ───────────────────────────────────────────────
+  - id: sql_amzn_2019_rev
+    q: "What was Amazon's total revenue for full-year 2019?"
+    route: [sql]
+    include: ["280"]
+    any: ["amazon", "amzn"]
+  - id: sql_rank_2019
+    q: "Rank the companies by full-year 2019 revenue, highest first."
+    route: [sql]
+    include: []
+    any: ["amazon", "amzn"]
+  - id: sql_msft_margin_2019
+    q: "What was Microsoft's net margin in 2019?"
+    route: [sql]
+    include: ["microsoft"]
+    any: ["31", "30", "net margin"]
+  - id: sql_nvda_growth_2018
+    q: "How fast did NVIDIA revenue grow year over year in 2018?"
+    route: [sql]
+    any: ["nvidia", "nvda"]
+  - id: sql_aapl_2019_growth
+    q: "Did Apple's revenue grow or shrink in fiscal 2019 versus 2018?"
+    route: [sql]
+    any: ["apple", "aapl"]
+  - id: sql_highest_net_margin_2019
+    q: "Which company had the highest net margin in 2019?"
+    route: [sql]
+    any: ["nvidia", "nvda"]
+  - id: sql_amd_revenue_small
+    q: "What was AMD's full-year revenue in 2019 in billions?"
+    route: [sql]
+    any: ["amd", "6.7", "6.6", "6."]
+
+  # ── VECTOR (transcripts) ──────────────────────────────────────────
+  - id: vec_aapl_services
+    q: "What did Apple management say about Services growth on their earnings calls?"
+    route: [vector]
+    include: ["apple"]
+    any: ["services", "icloud", "app store", "music"]
+  - id: vec_nvda_datacenter
+    q: "What did NVIDIA say about data center and gaming demand?"
+    route: [vector]
+    any: ["nvidia", "data center", "gaming", "gpu"]
+  - id: vec_amd_competition
+    q: "What did AMD management discuss about their product roadmap and competition?"
+    route: [vector]
+    any: ["amd", "ryzen", "epyc", "roadmap", "competit"]
+  - id: vec_intel_manufacturing
+    q: "What did Intel say about manufacturing and process technology challenges?"
+    route: [vector]
+    any: ["intel", "process", "manufactur", "7", "10 nan", "node"]
+  - id: vec_amzn_aws
+    q: "What did Amazon management say about AWS and the cloud business?"
+    route: [vector]
+    any: ["aws", "amazon", "cloud"]
+
+  # ── ML (sentiment) ────────────────────────────────────────────────
+  - id: ml_most_negative
+    q: "Which earnings call had the most negative tone according to the sentiment model?"
+    route: [ml, hybrid]
+    any: ["amzn", "amazon", "2020", "2016"]
+  - id: ml_aapl_sentiment
+    q: "How positive was the sentiment on Apple's earnings calls?"
+    route: [ml, hybrid]
+    any: ["apple", "aapl", "positive", "sentiment"]
+  - id: ml_covid_dip
+    q: "Which quarter had the lowest average earnings-call sentiment across all companies?"
+    route: [ml, hybrid, sql]
+    any: ["2020"]
+
+  # ── HYBRID (numbers + commentary / sentiment) ─────────────────────
+  - id: hyb_nvda_tone_vs_rev
+    q: "Did NVIDIA's management tone match its revenue trend?"
+    route: [hybrid]
+    any: ["nvidia", "nvda"]
+  - id: hyb_amzn_story
+    q: "How did Amazon's revenue grow in 2018 and what did management highlight on the calls?"
+    route: [hybrid]
+    any: ["amazon", "amzn"]
+  - id: hyb_intel_2020
+    q: "Compare Intel's 2020 revenue performance with the sentiment of its earnings calls that year."
+    route: [hybrid]
+    any: ["intel", "intc"]

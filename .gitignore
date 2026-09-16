@@ -1,0 +1,27 @@
+# secrets & env
+.env
+*.key
+*.pem
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+*.egg-info/
+
+# dbt
+dbt/**/target/
+dbt/**/dbt_packages/
+dbt/**/logs/
+.user.yml
+
+# data artifacts (raw landings & models kept out of git)
+data/transcripts_raw/*
+!data/transcripts_raw/.gitkeep
+*.parquet
+models_store/
+
+# os
+.DS_Store

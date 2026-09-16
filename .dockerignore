@@ -1,0 +1,14 @@
+.venv/
+.git/
+__pycache__/
+*.pyc
+data/transcripts_raw/*
+models_store/
+dbt/**/target/
+dbt/**/logs/
+dbt/**/dbt_packages/
+agents/eval/results.json
+.env
+*.key
+*.pub
+.DS_Store

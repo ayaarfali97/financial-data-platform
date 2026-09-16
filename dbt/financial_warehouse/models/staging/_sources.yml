@@ -1,0 +1,32 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: raw
+    tables:
+      - name: company
+        columns:
+          - name: ticker
+            tests: [not_null, unique]
+      - name: financial_facts
+        columns:
+          - name: ticker
+            tests: [not_null]
+          - name: concept
+            tests: [not_null]
+          - name: period_end
+            tests: [not_null]
+      - name: transcripts
+        columns:
+          - name: transcript_id
+            tests: [not_null, unique]
+          - name: ticker
+            tests: [not_null]
+  - name: vector
+    schema: vector
+    tables:
+      - name: transcript_chunks
+  - name: ml
+    schema: ml
+    tables:
+      - name: ml_outputs

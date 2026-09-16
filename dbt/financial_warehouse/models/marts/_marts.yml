@@ -1,0 +1,56 @@
+version: 2
+
+models:
+  - name: dim_company
+    description: One row per company.
+    columns:
+      - name: ticker
+        tests: [not_null, unique]
+      - name: sector
+        tests:
+          - not_null
+
+  - name: dim_date
+    description: Calendar dimension of all dates in the warehouse.
+    columns:
+      - name: date_day
+        tests: [not_null, unique]
+
+  - name: dim_document_type
+    columns:
+      - name: document_type
+        tests: [not_null, unique]
+
+  - name: fact_financial_metrics
+    description: Pivoted financial metrics per company/period/grain.
+    columns:
+      - name: ticker
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_company')
+              field: ticker
+      - name: grain
+        tests:
+          - accepted_values:
+              values: ['quarter', 'annual']
+
+  - name: fact_transcript_mentions
+    columns:
+      - name: transcript_id
+        tests: [not_null, unique]
+      - name: ticker
+        tests:
+          - relationships:
+              to: ref('dim_company')
+              field: ticker
+
+  - name: mart_company_kpis
+    description: Quarterly KPIs (margins + growth).
+    columns:
+      - name: ticker
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_company')
+              field: ticker

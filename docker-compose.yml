@@ -1,0 +1,58 @@
+name: financial-data-platform
+
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-fdp}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-fdp_local_pw}
+      POSTGRES_DB: ${POSTGRES_DB:-financial}
+    ports:
+      - "${POSTGRES_PORT:-5433}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./sql/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-fdp} -d ${POSTGRES_DB:-financial}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  # Shared image for agents + dbt. Kept alive so you can:
+  #   docker compose run --rm agents python -m agents.ingestion.ingest
+  agents:
+    build: .
+    env_file: .env
+    environment:
+      IN_DOCKER: "1"
+      # override so BOTH settings.py and dbt (env_var) reach postgres on the
+      # compose network instead of the host mapping in .env
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: "5432"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ./:/app
+
+  dashboard:
+    build: .
+    command: >
+      streamlit run dashboard/app.py
+      --server.port=8501 --server.address=0.0.0.0
+      --server.headless=true
+    env_file: .env
+    environment:
+      IN_DOCKER: "1"
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: "5432"
+    ports:
+      - "8501:8501"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ./:/app
+
+volumes:
+  pgdata:

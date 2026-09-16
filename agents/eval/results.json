@@ -1,0 +1,292 @@
+{
+  "summary": {
+    "total": 18,
+    "passed": 18,
+    "failed": 0,
+    "pass_rate": 1.0,
+    "route_accuracy": 1.0,
+    "by_route": {
+      "sql": "7/7",
+      "vector": "5/5",
+      "ml": "3/3",
+      "hybrid": "3/3"
+    },
+    "avg_latency_ms": 6666
+  },
+  "results": [
+    {
+      "id": "sql_amzn_2019_rev",
+      "question": "What was Amazon's total revenue for full-year 2019?",
+      "expected_route": [
+        "sql"
+      ],
+      "got_route": "sql",
+      "route_ok": true,
+      "grounded": true,
+      "include_ok": true,
+      "any_ok": true,
+      "passed": true,
+      "latency_ms": 1789,
+      "answer": "Amazon (AMZN) reported total revenue of **$280,522,000,000** for the full year 2019.\u3010SQL query, year\u202f=\u202f2019\u3011"
+    },
+    {
+      "id": "sql_rank_2019",
+      "question": "Rank the companies by full-year 2019 revenue, highest first.",
+      "expected_route": [
+        "sql"
+      ],
+      "got_route": "sql",
+      "route_ok": true,
+      "grounded": true,
+      "include_ok": true,
+      "any_ok": true,
+      "passed": true,
+      "latency_ms": 2576,
+      "answer": "**2019 Full\u2011Year Revenue Ranking (highest\u202f\u2192\u202flowest)**  \n\n1. **Amazon (AMZN)** \u2013\u202f$280,522,000,000 (rank\u202f1)  \n2. **Apple (AAPL)** \u2013\u202f$260,174,000,000 (rank\u202f2)  \n3. **Alphabet (GOOGL)** \u2013\u202f$161,857,000,000 (rank\u202f3)  \n4. **Microsoft (MSFT)** \u2013\u202f$125,843,000,000 (rank\u202f4)  \n5. **Intel (INTC)** \u2013\u202f$71,965,000,000 (rank\u202f5)  \n6. **Cisco (CSCO)** \u2013\u202f$51,904,000,000 (rank\u202f6)  \n7. **NVIDIA (NVDA)** \u2013\u202f$11,716,000,000 (rank\u202f7)  \n8. **AMD (AMD)** \u2013\u202f$6,731,000,000 (rank\u202f8)  "
+    },
+    {
+      "id": "sql_msft_margin_2019",
+      "question": "What was Microsoft's net margin in 2019?",
+      "expected_route": [
+        "sql"
+      ],
+      "got_route": "sql",
+      "route_ok": true,
+      "grounded": true,
+      "include_ok": true,
+      "any_ok": true,
+      "passed": true,
+      "latency_ms": 2684,
+      "answer": "Microsoft (MSFT) reported a net margin of **31.18\u202f%** for the year\u202f2019\u3010{\"net_margin_pct\":\"31.18\"}\u3011."
+    },
+    {
+      "id": "sql_nvda_growth_2018",
+      "question": "How fast did NVIDIA revenue grow year over year in 2018?",
+      "expected_route": [
+        "sql"
+      ],
+      "got_route": "sql",
+      "route_ok": true,
+      "grounded": true,
+      "include_ok": true,
+      "any_ok": true,
+      "passed": true,
+      "latency_ms": 2641,
+      "answer": "NVIDIA (NVDA) saw its revenue grow\u202f40.58\u202fpercent year\u2011over\u2011year in 2018."
+    },
+    {
+      "id": "sql_aapl_2019_growth",
+      "question": "Did Apple's revenue grow or shrink in fiscal 2019 versus 2018?",
+      "expected_route": [
+        "sql"
+      ],
+      "got_route": "sql",
+      "route_ok": true,
+      "grounded": true,
+      "include_ok": true,
+      "any_ok": true,
+      "passed": true,
+      "latency_ms": 2771,
+      "answer": "Apple (AAPL) saw its revenue **shrink** in fiscal 2019 versus fiscal 2018, falling from\u202f$265.595\u202fbillion in 2018 to\u202f$260.174\u202fbillion in 2019."
+    },
+    {
+      "id": "sql_highest_net_margin_2019",
+      "question": "Which company had the highest net margin in 2019?",
+      "expected_route": [
+        "sql"
+      ],
+      "got_route": "sql",
+      "route_ok": true,
+      "grounded": true,
+      "include_ok": true,
+      "any_ok": true,
+      "passed": true,
+      "latency_ms": 2290,
+      "answer": "NVIDIA Corporation (NVDA) had the highest net margin in 2019, posting a net margin of\u202f35.34\u202f%\u3010SQL rows\u3011."
+    },
+    {
+      "id": "sql_amd_revenue_small",
+      "question": "What was AMD's full-year revenue in 2019 in billions?",
+      "expected_route": [
+        "sql"
+      ],
+      "got_route": "sql",
+      "route_ok": true,
+      "grounded": true,
+      "include_ok": true,
+      "any_ok": true,
+      "passed": true,
+      "latency_ms": 741,
+      "answer": "AMD\u2019s full\u2011year revenue in 2019 was **$6.731\u202fbillion**\u3010{\"revenue_billion\":\"6.7310000000000000\"}\u3011."
+    },
+    {
+      "id": "vec_aapl_services",
+      "question": "What did Apple management say about Services growth on their earnings calls?",
+      "expected_route": [
+        "vector"
+      ],
+      "got_route": "vector",
+      "route_ok": true,
+      "grounded": true,
+      "include_ok": true,
+      "any_ok": true,
+      "passed": true,
+      "latency_ms": 3546,
+      "answer": "Apple\u2019s executives have repeatedly emphasized that the Services segment is a key growth engine and is expanding faster than the rest of the business.\n\n* **Fiscal\u202f2019\u202fQ1 (ended\u202fJan\u202f29\u202f2019)** \u2013 CFO Luca\u202fMaestri said the Services business is \u201cour installed base.\u201d  Apple added roughly **100\u202fmillion** users to that base in the prior 12\u202fmonths and is focused on getting a larger share of those users to transact on paid services\u30102019\u201101\u201129 Q1\u3011.  \n\n* **Fiscal\u202f2020\u202fQ1 (ended\u202fJan\u202f28\u202f2020)** \u2013 Management noted that the company had already **doubled its fiscal\u2011\u201816 Services revenue on a run\u2011rate basis** and was on track to exceed **500\u202fmillion paid subscriptions** (already at 480\u202fmillion) and then set a new goal of **600\u202fmillion paid subscriptions by the end of calendar\u202f2020**\u30102020\u201101\u201128 Q1\u3011.  \n\n* **Fiscal\u202f2020\u202fQ2 (ended\u202fApr\u202f30\u202f2020)** \u2013 While the transcript only shows an analyst\u2019s question, the context of the discussion underscores that Services remained \u201csolid \u2026 despite overall macro weakness,\u201d indicating management\u2019s confidence that the segment could stay resilient even when hardware demand softened\u30102020\u201104\u201130 Q2\u3011.  \n\n* **Fiscal\u202f2016\u202fQ2 (ended\u202fApr\u202f26\u202f2016)** \u2013 CEO Tim\u202fCook explained that Apple\u2019s focus on \u201cgreat customer experience\u201d drives the push into Services, which has become \u201ca very large and profitable business\u201d that the company wants investors to see more clearly\u30102016\u201104\u201126 Q2\u3011.  \n\n* **Fiscal\u202f2016\u202fQ4 (ended\u202fOct\u202f25\u202f2016)** \u2013 Management highlighted that **services revenue growth was accelerating** even as overall revenue dipped slightly, noting that \u201ccustomers \u2026 tend to spend more and more on our services\u201d and that the upward trajectory spans the App\u202fStore and several other categories\u30102016\u201110\u201125 Q4\u3011.  \n\nIn sum, Apple\u2019s leadership has repeatedly said that Services growth is being driven by a expanding installed base, increasing share of total revenue, higher gross\u2011margin contribution, accelerating spend per user, and ambitious subscription\u2011count targets."
+    },
+    {
+      "id": "vec_nvda_datacenter",
+      "question": "What did NVIDIA say about data center and gaming demand?",
+      "expected_route": [
+        "vector"
+      ],
+      "got_route": "vector",
+      "route_ok": true,
+      "grounded": true,
+      "include_ok": true,
+      "any_ok": true,
+      "passed": true,
+      "latency_ms": 1865,
+      "answer": "NVIDIA (NVDA) told investors that its **data\u2011center demand is \u201cdoing great.\u201d**\u202fIn the Q3\u202f2018 earnings call (Nov\u202f15\u202f2018) CEO Jensen\u202fHuang said the fundamentals of accelerated computing are \u201cspot on,\u201d noting a \u201cnearly 50\u202f% year\u2011over\u2011year growth\u201d in the number of systems in the TOP500 list and that NVIDIA is the #1 system provider in the United States, Europe, Japan and worldwide.\u202f\u3010NVDA\u202f2018\u201111\u201115\u202fQ3\u3011\n\nRegarding **gaming demand**, Huang explained that NVIDIA\u2019s strategy is to \u201cextend our PC position for GeForce gamers into the cloud\u201d as part of its cloud\u2011gaming push, indicating that the company expects continued strength in the gaming segment and is positioning its GPUs for both traditional and cloud\u2011based gaming.\u202f\u3010NVDA\u202f2019\u201105\u201116\u202fQ1\u3011"
+    },
+    {
+      "id": "vec_amd_competition",
+      "question": "What did AMD management discuss about their product roadmap and competition?",
+      "expected_route": [
+        "vector"
+      ],
+      "got_route": "vector",
+      "route_ok": true,
+      "grounded": true,
+      "include_ok": true,
+      "any_ok": true,
+      "passed": true,
+      "latency_ms": 1954,
+      "answer": "AMD\u2019s management outlined a multi\u2011year product roadmap focused on new high\u2011performance CPU and GPU families and on expanding those products into new market segments:\n\n* **Zen\u2011based CPUs and Vega GPUs** \u2013 In the FY\u202f2017 Q4 call (31\u202fJan\u202f2017) the company said it was preparing to launch its \u201cZen\u2011based CPUs and Vega GPUs\u201d to bring AMD back into the high\u2011performance markets where it had \u201cnot materially participated in recent years.\u201d Management highlighted the production ramp, customer adoption and ecosystem support for the desktop Ryzen processors, and said Zen would be extended to the data\u2011center market in the second quarter, then to embedded and notebook markets in the second half of the year.  \n\n* **EPYC and Ryzen Embedded families** \u2013 In the FY\u202f2018 Q2 call (25\u202fJul\u202f2018) AMD reported \u201cstrong initial design wins for our new EPYC and Ryzen Embedded product families following their launch last quarter.\u201d The executives noted that several years earlier AMD had made \u201cimportant decisions around our CPU and GPU roadmaps to drive leadership at the 7\u2011nanometer node,\u201d giving the company line\u2011of\u2011sight to those next\u2011generation products.\n\nThese statements collectively describe AMD\u2019s roadmap: a rollout of Zen\u2011based desktop and data\u2011center CPUs, Vega GPUs, and the EPYC and Ryzen Embedded lines, all built on a 7\u202fnm process to regain competitiveness in the high\u2011performance segment. The transcripts do not contain explicit commentary on specific competitors, only the implication that AMD is aiming to re\u2011enter markets where it has previously lagged behind rivals."
+    },
+    {
+      "id": "vec_intel_manufacturing",
+      "question": "What did Intel say about manufacturing and process technology challenges?",
+      "expected_route": [
+        "vector"
+      ],
+      "got_route": "vector",
+      "route_ok": true,
+      "grounded": true,
+      "include_ok": true,
+      "any_ok": true,
+      "passed": true,
+      "latency_ms": 939,
+      "answer": "The provided excerpts contain only the headings and participant lists for Intel\u2019s (INTC) earnings\u2011call transcripts (Q4\u202f2017, Q1\u202f2018, Q1\u202f2019, Q2\u202f2019). No actual commentary or quotations about manufacturing or process\u2011technology challenges are included. Therefore, based on the given context, I cannot provide Intel\u2019s statements on those topics."
+    },
+    {
+      "id": "vec_amzn_aws",
+      "question": "What did Amazon management say about AWS and the cloud business?",
+      "expected_route": [
+        "vector"
+      ],
+      "got_route": "vector",
+      "route_ok": true,
+      "grounded": true,
+      "include_ok": true,
+      "any_ok": true,
+      "passed": true,
+      "latency_ms": 40989,
+      "answer": "Amazon (AMZN) management repeatedly emphasized that AWS remains a fast\u2011growing, strategically important cloud platform:\n\n* **Q4\u202f2018 (Feb\u202f1\u202f2018)** \u2013 Dave\u202fFildes said the company is \u201chappy with AWS\u201d and highlighted the advantage of a large internal beta customer that \u201ctries out and uses a lot of their products and services,\u201d adding that there is \u201cno reason to change the structure that we have.\u201d  \n\n* **Q2\u202f2018 (Jul\u202f26\u202f2018)** \u2013 Management noted that AWS growth is coming from a broad base of customers \u2013 from start\u2011ups to enterprises and government agencies \u2013 many of which \u201cgo all\u2011in on AWS\u201d and achieve lower cost structures, even for Amazon\u2019s own consumer business.  \n\n* **Q2\u202f2019 (Jul\u202f25\u202f2019)** \u2013 Brian\u202fT.\u202fOlsavsky reported a \u201creally strong quarter\u201d for AWS, with the run\u2011rate increasing from **$24\u202fbillion to $33\u202fbillion**, a **37\u202f% year\u2011over\u2011year growth** and an absolute increase of **$9\u202fbillion**.  \n\n* **Q1\u202f2020 (Apr\u202f30\u202f2020)** \u2013 CFO Brian\u202fOlsavsky said Amazon \u201ccontinues to see a healthy adoption of our business and healthy usage, not only in the United States but globally,\u201d and that \u201cour backlog of future contracts continues to build,\u201d reaffirming confidence in the basic value proposition of the cloud business.  \n\n* **Q2\u202f2020 (Jul\u202f30\u202f2020)** \u2013 When asked about a slowdown in the $43\u202fbillion run\u2011rate, management indicated that the pace of IT decision\u2011making remains robust and that AWS could still accelerate growth despite challenges in certain verticals.\n\nOverall, Amazon\u2019s leadership described AWS as a high\u2011growth, globally adopted cloud platform with a strong customer pipeline, solid usage metrics, and no planned changes to its operating structure."
+    },
+    {
+      "id": "ml_most_negative",
+      "question": "Which earnings call had the most negative tone according to the sentiment model?",
+      "expected_route": [
+        "ml",
+        "hybrid"
+      ],
+      "got_route": "ml",
+      "route_ok": true,
+      "grounded": true,
+      "include_ok": true,
+      "any_ok": true,
+      "passed": true,
+      "latency_ms": 1322,
+      "answer": "The most negative earnings\u2011call tone was recorded for **Amazon (AMZN)** in **Q2\u202f2016** (call date\u202f2016\u201104\u201128), which received a sentiment score of **\u20110.104**\u3010SENTIMENT per\u2011call\u3011."
+    },
+    {
+      "id": "ml_aapl_sentiment",
+      "question": "How positive was the sentiment on Apple's earnings calls?",
+      "expected_route": [
+        "ml",
+        "hybrid"
+      ],
+      "got_route": "ml",
+      "route_ok": true,
+      "grounded": true,
+      "include_ok": true,
+      "any_ok": true,
+      "passed": true,
+      "latency_ms": 1896,
+      "answer": "Apple\u2019s earnings\u2011call sentiment was consistently positive.\u202fAcross the 19 calls from\u202f2016\u2011Q1\u202fthrough\u202f2020\u2011Q3, the sentiment scores ranged from\u202f\u20110.024\u202f(only negative call) to\u202f0.484, with every other call labeled \u201cpositive.\u201d\u202fThe average sentiment score is approximately\u202f0.31\u202f(5.924\u202f\u00f7\u202f19\u202f\u2248\u202f0.313), indicating a strongly positive tone overall."
+    },
+    {
+      "id": "ml_covid_dip",
+      "question": "Which quarter had the lowest average earnings-call sentiment across all companies?",
+      "expected_route": [
+        "ml",
+        "hybrid",
+        "sql"
+      ],
+      "got_route": "hybrid",
+      "route_ok": true,
+      "grounded": true,
+      "include_ok": true,
+      "any_ok": true,
+      "passed": true,
+      "latency_ms": 20717,
+      "answer": "Based on the provided context, the quarter with the lowest average earnings-call sentiment across all companies is **2020-Q2**, which had an average sentiment score of **0.097** across 8 calls. \n\nFor this quarter, the individual company sentiment scores provided in the data include:\n* **Apple (AAPL)**: 0.076\n* **AMD (AMD)**: 0.254"
+    },
+    {
+      "id": "hyb_nvda_tone_vs_rev",
+      "question": "Did NVIDIA's management tone match its revenue trend?",
+      "expected_route": [
+        "hybrid"
+      ],
+      "got_route": "hybrid",
+      "route_ok": true,
+      "grounded": true,
+      "include_ok": true,
+      "any_ok": true,
+      "passed": true,
+      "latency_ms": 3790,
+      "answer": "**NVIDIA (NVDA)** kept a consistently\u202f*positive*\u202ftone in its earnings\u2011call language, but the intensity of that positivity moved in the same direction as its revenue growth.\n\n| Quarter | YoY revenue growth | Sentiment score | Comment |\n|---------|-------------------|----------------|---------|\n| 2016\u202fQ4 | **+53.6\u202f%** | 0.123 (positive) | Strong growth, modestly positive tone. |\n| 2017\u202fQ2 | **+48.4\u202f%** | 0.141 (positive) | Growth remains high; tone stays positive. |\n| 2017\u202fQ3 | **+56.2\u202f%** | 0.229 (positive) | Highest growth in the sample and the highest sentiment score. |\n| 2017\u202fQ4 | **+31.5\u202f%** | 0.189 (positive) | Growth eases; sentiment score falls slightly. |\n| 2018\u202fQ2 | **+65.6\u202f%** | 0.149 (positive) | Record growth but sentiment score is lower than Q3\u202f2017, showing a more measured tone. |\n| 2018\u202fQ3 | **+40.0\u202f%** | 0.247 (positive) | Growth moderates; sentiment rises again. |\n| 2018\u202fQ4 | **+20.7\u202f%** | 0.148 (positive) | Growth slows; sentiment drops. |\n| 2019\u202fQ2 | **\u201130.8\u202f%** | 0.215 (positive) | First double\u2011digit decline; tone stays positive but the score is lower than the peak growth quarters. |\n| 2019\u202fQ3 | **\u201117.4\u202f%** | 0.086 (positive) | Decline deepens; sentiment score falls to its lowest point in the data set. |\n| 2019\u202fQ4 | **\u20115.3\u202f%** | 0.166 (positive) | Revenue still negative; tone improves slightly as the decline narrows. |\n| 2020\u202fQ2 | **+38.7\u202f%** | 0.281 (positive) | Revenue rebounds strongly; sentiment score climbs to the highest level observed. |\n\n**Interpretation**\n\n- The management tone never turned negative; the model labels every quarter as *positive*.\n- The **sentiment score** rises in quarters with strong revenue growth (e.g., 2017\u202fQ3, 2020\u202fQ2) and falls in quarters where revenue contracts (e.g., 2019\u202fQ3).  \n- Even when revenue fell sharply (2019\u202fQ2\u2011Q4), the tone remained positive, but the scores were noticeably lower than in high\u2011growth periods.\n\n**Conclusion:** NVIDIA\u2019s management tone generally tracked its revenue trend\u2014higher sentiment scores accompanied strong growth, and lower scores appeared during revenue declines\u2014though the tone stayed overall positive throughout."
+    },
+    {
+      "id": "hyb_amzn_story",
+      "question": "How did Amazon's revenue grow in 2018 and what did management highlight on the calls?",
+      "expected_route": [
+        "hybrid"
+      ],
+      "got_route": "hybrid",
+      "route_ok": true,
+      "grounded": true,
+      "include_ok": true,
+      "any_ok": true,
+      "passed": true,
+      "latency_ms": 2001,
+      "answer": "**Revenue growth in 2018 (as disclosed on the earnings calls)**  \n\n- **Q1\u202f2018:**  CFO Brian T. Olsavsky said that, after stripping out a $560\u202fmillion line\u2011item, \u201cwe\u2019d be **growing about\u202f72\u202f%**\u201d (AMZN\u202f2018\u2011Q1).  \n- **Q2\u202f2018:**  The same CFO noted a \u201cvery strong **unit\u2011growth rate** \u2026 of **27\u202f%**\u201d year\u2011over\u2011year (AMZN\u202f2018\u2011Q2).  \n\nThe transcripts do not provide a single, company\u2011wide revenue\u2011growth percentage for the full 2018 fiscal year, so a precise annual figure cannot be given from the available context.\n\n**Management highlights on the 2018 calls**\n\n| Quarter | Management\u2019s key take\u2011aways |\n|---------|-----------------------------|\n| **Q1** | Emphasized the high growth rate (\u2248\u202f72\u202f%) after adjusting for a $560\u202fM line\u2011item. |\n| **Q2** | Highlighted **27\u202f% YoY unit growth** on the retail side and discussed the sustainability of new efficiencies. |\n| **Q3** | Reiterated \u201cvery strong growth in some very profitable business\u201d and discussed the impact of subscription\u2011revenue accounting changes. |\n| **Q4** | Stressed **record device sales**, increased **voice\u2011shopping usage**, rapid expansion of **Alexa skills (30\u202fk+)** and **smart\u2011home devices (4\u202fk+ from 1\u202f200 brands)**, and continued **strong investment in CapEx and capital leases**. |\n\nAll sentiment scores for the 2018 calls are positive (0.08\u20130.31), indicating a generally upbeat tone from management."
+    },
+    {
+      "id": "hyb_intel_2020",
+      "question": "Compare Intel's 2020 revenue performance with the sentiment of its earnings calls that year.",
+      "expected_route": [
+        "hybrid"
+      ],
+      "got_route": "hybrid",
+      "route_ok": true,
+      "grounded": true,
+      "include_ok": true,
+      "any_ok": true,
+      "passed": true,
+      "latency_ms": 25476,
+      "answer": "**Intel (INTC) \u2013 2020**\n\n- **Revenue:** $77.87\u202fbillion (2020 annual revenue,\u202f77.867\u202fbillion\u202fUSD)\u3010SQL\u3011.  \n- **Earnings\u2011call sentiment:** The model\u2011generated average sentiment for all 2020 calls was **0.18** (0.1801)\u3010SQL\u3011. The three individual calls were:\n  - Q1 (Jan\u202f23\u202f2020):\u202f0.320\u202f(positive)\u3010SENTIMENT\u3011  \n  - Q2 (Apr\u202f23\u202f2020):\u202f0.175\u202f(positive)\u3010SENTIMENT\u3011  \n  - Q3 (Jul\u202f23\u202f2020):\u202f0.185\u202f(positive)\u3010SENTIMENT\u3011\n\n**Comparison**  \nIntel posted a strong, record\u2011level revenue of roughly $78\u202fbillion in 2020, while the tone of its earnings\u2011call transcripts was only modestly positive, with an overall sentiment score of about **0.18** and quarterly scores ranging from **0.175** to **0.320**. The revenue magnitude was high, but the sentiment signals were relatively muted, indicating that management\u2019s optimism was tempered in the call language."
+    }
+  ]
+}
